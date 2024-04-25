@@ -180,7 +180,7 @@ int main()
     // Mi aspetto che MergeSort sia molto più veloce di Bubblesort.
     cout << "Tempo medio per BubbleSort: " << mean_bs/N << "ns" << endl;
     cout << "Tempo medio per MergeSort: " << mean_ms/N<< "ns" << endl;
-    if(mean_bs< mean_ms)
+    if(mean_bs < mean_ms)
     {
         cout << "BubbleSort vince." << endl << endl;
     }

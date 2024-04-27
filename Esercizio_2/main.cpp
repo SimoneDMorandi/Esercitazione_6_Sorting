@@ -10,7 +10,7 @@ using namespace std;
 using namespace SortLibrary;
 
 /* Definisco la funzione che calcola il tempo di esecuzione degli algoritmi di ordinamento per i due vettori
-   e ne restituisce la durata in un vettore di due componenti*/
+   e ne restituisce la durata in un vettore di due componenti.*/
 vector<double> ComputeTime(vector<int> & vector_bs, vector<int> & vector_ms)
 {
     vector<double> duration(2);
@@ -31,7 +31,6 @@ vector<double> ComputeTime(vector<int> & vector_bs, vector<int> & vector_ms)
     duration[1] = duration_ms;
 
     return duration;
-
 }
 
 int main()
@@ -47,11 +46,12 @@ int main()
     /* Tutti i test saranno eseguiti allo stesso modo:
        Si generano N vettori di un tipo, si calcola per ugnuno il tempo necessario
        per ordinarlo con i due metodi, poi si calcola la media dei tempi e si
-       comparano i risultati. Ciò che cambia da un test all'altro è la
-       definizione dei vettori.*/
+       comparano i risultati. Ciò che cambia da un test all'altro è l'inizializzione
+       dei vettori.*/
 
 
     // Test 1 : Vettore ordinato.
+
     double mean_bs = 0;
     double mean_ms = 0;
     cout << "Test 1: Vettore ordinato." << endl;
@@ -76,7 +76,7 @@ int main()
     // Comparo i risultati:
     // Mi aspetto che BubbleSort sia più veloce di MergeSort.
     cout << "Tempo medio per BubbleSort: " << mean_bs/N << "ns" << endl;
-    cout << "Tempo medio per MergeSort: " << mean_ms/N<< "ns" << endl;
+    cout << "Tempo medio per MergeSort: " << mean_ms/N << "ns" << endl;
     if(mean_bs < mean_ms)
     {
         cout << "BubbleSort vince." << endl << endl;
@@ -113,7 +113,7 @@ int main()
     // Comparo i risultati:
     // Mi aspetto che MergeSort sia più veloce di BubbleSort.
     cout << "Tempo medio per BubbleSort: " << mean_bs/N << "ns" << endl;
-    cout << "Tempo medio per MergeSort: " << mean_ms/N<< "ns" << endl;
+    cout << "Tempo medio per MergeSort: " << mean_ms/N << "ns" << endl;
     if(mean_bs < mean_ms)
     {
         cout << "BubbleSort vince." << endl << endl;
@@ -147,7 +147,7 @@ int main()
     // Comparo i risultati:
     // Mi aspetto che MergeSort sia molto più veloce di Bubblesort.
     cout << "Tempo medio per BubbleSort: " << mean_bs/N << "ns" << endl;
-    cout << "Tempo medio per MergeSort: " << mean_ms/N<< "ns" << endl;
+    cout << "Tempo medio per MergeSort: " << mean_ms/N << "ns" << endl;
     if(mean_bs < mean_ms)
     {
         cout << "BubbleSort vince." << endl << endl;
@@ -179,7 +179,7 @@ int main()
     // Comparo i risultati:
     // Mi aspetto che MergeSort sia molto più veloce di Bubblesort.
     cout << "Tempo medio per BubbleSort: " << mean_bs/N << "ns" << endl;
-    cout << "Tempo medio per MergeSort: " << mean_ms/N<< "ns" << endl;
+    cout << "Tempo medio per MergeSort: " << mean_ms/N << "ns" << endl;
     if(mean_bs< mean_ms)
     {
         cout << "BubbleSort vince." << endl << endl;
@@ -193,7 +193,8 @@ int main()
 
     mean_bs = 0;
     mean_ms = 0;
-    unsigned int s = 100, n = s;
+    const unsigned int s = 100;
+    unsigned int n = s;
 
     cout << "Test 5: Vettore decrescente di piccole dimensioni." << endl;
     for(unsigned int j = 0; j < N; j++)
@@ -211,7 +212,7 @@ int main()
     // Comparo i risultati:
     // Mi aspetto che Bubblesort sia più veloce di MergeSort.
     cout << "Tempo medio per BubbleSort: " << mean_bs/N << "ns" << endl;
-    cout << "Tempo medio per MergeSort: " << mean_ms/N<< "ns" << endl;
+    cout << "Tempo medio per MergeSort: " << mean_ms/N << "ns" << endl;
     if(mean_bs < mean_ms)
     {
         cout << "BubbleSort vince." << endl << endl;

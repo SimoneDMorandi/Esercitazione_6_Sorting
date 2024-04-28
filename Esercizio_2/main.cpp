@@ -3,14 +3,13 @@
 #include <chrono>
 #include<vector>
 #include <numeric>
-#include <algorithm>
 #include <iomanip>
 
 using namespace std;
 using namespace SortLibrary;
 
 /* Definisco la funzione che calcola il tempo di esecuzione degli algoritmi di ordinamento per i due vettori
-   e ne restituisce la durata in un vettore di due componenti.*/
+   identici e ne restituisce la durata in un vettore di due componenti.*/
 vector<double> ComputeTime(vector<int> & vector_bs, vector<int> & vector_ms)
 {
     vector<double> duration(2);
@@ -44,16 +43,18 @@ int main()
 
 
     /* Tutti i test saranno eseguiti allo stesso modo:
-       Si generano N vettori di un tipo, si calcola per ugnuno il tempo necessario
-       per ordinarlo con i due metodi, poi si calcola la media dei tempi e si
-       comparano i risultati. Ciò che cambia da un test all'altro è l'inizializzione
-       dei vettori.*/
+       Si generano N vettori di un tipo, per ciascuno si crea una copia,
+       si calcola per ugnuno il tempo necessario per ordinarlo rispettivamente con i due metodi,
+       poi si calcola la media dei tempi e si comparano i risultati.
+       Ciò che cambia da un test all'altro è l'inizializzione dei vettori.*/
 
 
     // Test 1 : Vettore ordinato.
 
+    // Inizializzo le variabili che conterranno la media dei tempi.
     double mean_bs = 0;
     double mean_ms = 0;
+
     cout << "Test 1: Vettore ordinato." << endl;
     for(unsigned int j = 0; j < N; j++)
     {
@@ -62,7 +63,7 @@ int main()
         vector<int> vector_bs(N);
         iota(vector_bs.begin(),vector_bs.end(),0);
 
-        // Definisco un secondo vettore in modo da poterli passare a entrambi gli algoritmi separatamente.
+        // Definisco una copia del vettore, in modo da passare ai due algoritmi lo stesso oggetto.
         vector<int> vector_ms = vector_bs;
 
         // Calcolo il tempo di esecuzione.
@@ -97,11 +98,12 @@ int main()
     cout << "Test 2: Vettore parzialmente ordinato." << endl;
     for(unsigned int j = 0; j < N; j++)
     {
-        // Definisco i vettori ordinati a metà.
+        // Definisco i vettori ordinati fino a metà della loro lunghezza.
         vector<int> vector_bs(N);
-        for(unsigned int i = N-1; i > N/2; i--)
+        iota(vector_bs.begin(),vector_bs.begin() + N/2 ,0);
+        for(unsigned int i = N-1; i > N/2 -1; i--)
         {
-            vector_bs[i] = rand() % N;  // Genero numeri casuali tra 0 ed N.
+            vector_bs[i] = (rand() % N) +N/2;  // Genero numeri casuali tra N/2 ed N.
         }
         vector<int> vector_ms = vector_bs;
 
@@ -166,9 +168,8 @@ int main()
     for(unsigned int j = 0; j < N; j++)
     {
         // Definisco i vettori decrescenti.
-        unsigned int n = N;
         vector<int> vector_bs(N);
-        generate(vector_bs.begin(), vector_bs.end(), [&n]() { return n--; });
+        iota(vector_bs.rbegin(), vector_bs.rend(), 0);
         vector<int> vector_ms = vector_bs;
 
         vector<double> duration = ComputeTime(vector_bs,vector_ms);
@@ -194,14 +195,13 @@ int main()
     mean_bs = 0;
     mean_ms = 0;
     const unsigned int s = 100;
-    unsigned int n = s;
 
     cout << "Test 5: Vettore decrescente di piccole dimensioni." << endl;
     for(unsigned int j = 0; j < N; j++)
     {
         // Definisco i vettori decrescenti.
         vector<int> vector_bs(s);
-        generate(vector_bs.begin(), vector_bs.end(), [&n]() { return n--; });
+        iota(vector_bs.rbegin(), vector_bs.rend(), 0);
         vector<int> vector_ms = vector_bs;
 
         vector<double> duration = ComputeTime(vector_bs,vector_ms);

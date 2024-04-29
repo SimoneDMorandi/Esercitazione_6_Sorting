@@ -34,8 +34,8 @@ vector<double> ComputeTime(vector<int> & vector_bs, vector<int> & vector_ms)
 
 int main()
 {
-    /* Definisco il numero di iterazioni su cui verrà fatta la media dei tempi.
-       e la grandezza, sufficientemente grande, del vettore*/
+    /* Definisco il numero di iterazioni su cui verrà fatta la media dei tempi
+       e la grandezza, sufficientemente grande, del vettore.*/
     const unsigned int N = 1000;
 
     // Definisco la precisione con cui verrano stampati i risultati.
@@ -84,7 +84,7 @@ int main()
     }
     else
     {
-        cout << "MergeSort vince." << endl << endl;
+        cerr << "MergeSort vince." << endl << endl;
     }
 
     // Test 2 : Vettore parzialmente ordinato.
@@ -118,7 +118,7 @@ int main()
     cout << "Tempo medio per MergeSort: " << mean_ms/N << "ns" << endl;
     if(mean_bs < mean_ms)
     {
-        cout << "BubbleSort vince." << endl << endl;
+        cerr << "BubbleSort vince." << endl << endl;
     }
     else
     {
@@ -152,7 +152,7 @@ int main()
     cout << "Tempo medio per MergeSort: " << mean_ms/N << "ns" << endl;
     if(mean_bs < mean_ms)
     {
-        cout << "BubbleSort vince." << endl << endl;
+        cerr << "BubbleSort vince." << endl << endl;
     }
     else
     {
@@ -183,7 +183,7 @@ int main()
     cout << "Tempo medio per MergeSort: " << mean_ms/N << "ns" << endl;
     if(mean_bs < mean_ms)
     {
-        cout << "BubbleSort vince." << endl << endl;
+        cerr << "BubbleSort vince." << endl << endl;
     }
     else
     {
@@ -219,7 +219,7 @@ int main()
     }
     else
     {
-        cout << "MergeSort vince." << endl << endl;
+        cerr << "MergeSort vince." << endl << endl;
     }
 
     return 0;

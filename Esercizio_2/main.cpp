@@ -36,11 +36,20 @@ int main()
 {
     /* Definisco il numero di iterazioni su cui verrà fatta la media dei tempi
        e la grandezza, sufficientemente grande, del vettore.*/
-    const unsigned int N = 1000;
+
+
+    // Richiedo la dimensione del vettore di grandi dimensioni.
+    unsigned int N;
+    cout << "Inserire la dimensione del vettore, sufficientemente grande." << endl;;
+    cin >> N;
+
+    // Richiedo la dimensione del vettore di piccole dimensioni.
+    unsigned int s;
+    cout << "Inserire la dimensione del vettore, sufficientemente piccola." << endl;
+    cin >> s;
 
     // Definisco la precisione con cui verrano stampati i risultati.
     cout << fixed << setprecision(0);
-
 
     /* Tutti i test saranno eseguiti allo stesso modo:
        Si generano N vettori di un tipo, per ciascuno si crea una copia,
@@ -194,7 +203,6 @@ int main()
 
     mean_bs = 0;
     mean_ms = 0;
-    const unsigned int s = 100;
 
     cout << "Test 5: Vettore decrescente di piccole dimensioni." << endl;
     for(unsigned int j = 0; j < N; j++)
